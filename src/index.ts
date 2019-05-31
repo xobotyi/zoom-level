@@ -47,7 +47,7 @@ function calculatePageZoomLevel(): number {
 function zoomLevel(win?: IECompatibleWindow): number {
   win = win || window;
   if (typeof win.devicePixelRatio !== "undefined") {
-    return 1;
+    return win.devicePixelRatio;
   }
 
   if (typeof win.document.frames !== "undefined") {
