@@ -13,7 +13,7 @@ export default {
     {
       file: pkg.main,
       format: "umd",
-      name: "zoom-level",
+      name: "zoomLevel",
       sourcemap: true,
       exports: "named"
     }
