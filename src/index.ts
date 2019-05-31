@@ -26,8 +26,8 @@ const zoomLevelDetector = (
   return currentLevel;
 };
 
-function calculatePageZoomLevel(): number {
-  const mm = window.matchMedia;
+function calculatePageZoomLevel(win: Window): number {
+  const mm = win.matchMedia;
   let startLevel = 10;
   let minLevel = 0.1;
   let stepDivisor = 1;
@@ -46,6 +46,7 @@ function calculatePageZoomLevel(): number {
 
 function zoomLevel(win?: IECompatibleWindow): number {
   win = win || window;
+
   if (typeof win.devicePixelRatio !== "undefined") {
     return win.devicePixelRatio;
   }
@@ -59,7 +60,7 @@ function zoomLevel(win?: IECompatibleWindow): number {
   }
 
   if (typeof win.matchMedia !== "undefined") {
-    return calculatePageZoomLevel();
+    return calculatePageZoomLevel(win);
   }
 
   return 1;
