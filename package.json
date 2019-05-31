@@ -1,0 +1,42 @@
+{
+  "name": "zoom-level",
+  "version": "1.0.0",
+  "main": "dist/zoom-level.js",
+  "module": "dist/zoom-level.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xobotyi/zoom-level.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xobotyi/zoom-level/issues"
+  },
+  "homepage": "https://github.com/xobotyi/zoom-level",
+  "author": {
+    "name": "Anton Zinovyev",
+    "url": "https://github.com/xobotyi",
+    "email": "xog3@yandex.ru"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "codacy-coverage": "^3.4.0",
+    "husky": "^2.3.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.5",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "typescript": "^3.5.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 120
+  }
+}
