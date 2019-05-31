@@ -1,12 +1,9 @@
-declare var global: {
-  window?: Window;
-  document?: Document & {
-    frames: {
-      devicePixelRatio: number;
-      screen: {
-        deviceXDPI: number;
-        systemXDPI: number;
-      };
+declare var document: Document & {
+  frames: {
+    devicePixelRatio: number;
+    screen: {
+      deviceXDPI: number;
+      systemXDPI: number;
     };
   };
 };
@@ -46,7 +43,6 @@ function calculatePageZoomLevel(): number {
 }
 
 function zoomLevel(): number {
-  const window = global.window;
   if (!window) {
     return 1;
   }
@@ -55,7 +51,6 @@ function zoomLevel(): number {
     return 1;
   }
 
-  const document = global.document;
   if (!document) {
     return 1;
   }
