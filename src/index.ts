@@ -44,7 +44,8 @@ function calculatePageZoomLevel(): number {
   return level / stepDivisor;
 }
 
-function zoomLevel(win: IECompatibleWindow = window): number {
+function zoomLevel(win?: IECompatibleWindow): number {
+  win = win || window;
   if (typeof win.devicePixelRatio !== "undefined") {
     return 1;
   }
@@ -64,11 +65,9 @@ function zoomLevel(win: IECompatibleWindow = window): number {
   return 1;
 }
 
-function elementZoomLevel(
-  element: HTMLElement,
-  elementStyles?: CSSStyleDeclaration,
-  win: IECompatibleWindow = window
-): number {
+function elementZoomLevel(element: HTMLElement, elementStyles?: CSSStyleDeclaration, win?: IECompatibleWindow): number {
+  win = win || window;
+
   elementStyles = elementStyles || getComputedStyle(element);
 
   // @ts-ignore
