@@ -27,7 +27,7 @@ const zoomLevelDetector = (
   return currentLevel;
 };
 
-const calculatePageZoomLevel = (): number => {
+function calculatePageZoomLevel(): number {
   const mm = window.matchMedia;
   let startLevel = 10;
   let minLevel = 0.1;
@@ -43,9 +43,9 @@ const calculatePageZoomLevel = (): number => {
   }
 
   return level / stepDivisor;
-};
+}
 
-const zoomLevel = (): number => {
+function zoomLevel(): number {
   const window = global.window;
   if (!window) {
     return 1;
@@ -73,13 +73,13 @@ const zoomLevel = (): number => {
   }
 
   return 1;
-};
+}
 
-const elementZoomLevel = (element: HTMLElement, style?: CSSStyleDeclaration): number => {
+function elementZoomLevel(element: HTMLElement, style?: CSSStyleDeclaration): number {
   style = style || getComputedStyle(element);
 
   // @ts-ignore
   return zoomLevel() * (parseFloat(style.zoom) || 1);
-};
+}
 
 export { zoomLevel as default, elementZoomLevel, zoomLevel };
