@@ -37,6 +37,19 @@ export function zoomLevel(): number {
     return 1;
   }
 
+  const document = global.document;
+  if (!document) {
+    return 1;
+  }
+
+  if (typeof document.frames !== "undefined") {
+    if (typeof document.frames.devicePixelRatio !== "undefined") {
+      return document.frames.devicePixelRatio;
+    }
+
+    return document.frames.screen.deviceXDPI / document.frames.screen.systemXDPI;
+  }
+
   if (typeof window.matchMedia !== "undefined") {
     const mm = window.matchMedia;
     let startLevel = 10;
@@ -53,19 +66,6 @@ export function zoomLevel(): number {
     }
 
     return level / stepDivisor;
-  }
-
-  const document = global.document;
-  if (!document) {
-    return 1;
-  }
-
-  if (typeof document.frames !== "undefined") {
-    if (typeof document.frames.devicePixelRatio !== "undefined") {
-      return document.frames.devicePixelRatio;
-    }
-
-    return document.frames.screen.deviceXDPI / document.frames.screen.systemXDPI;
   }
 
   return 1;
