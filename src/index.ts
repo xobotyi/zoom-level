@@ -27,6 +27,24 @@ const zoomLevelDetector = (
   return currentLevel;
 };
 
+const calculatePageZoomLevel = (): number => {
+  const mm = window.matchMedia;
+  let startLevel = 10;
+  let minLevel = 0.1;
+  let stepDivisor = 1;
+  let level;
+
+  for (let i = 0; i < 4; i++) {
+    level = 10 * zoomLevelDetector(mm, startLevel, minLevel, stepDivisor);
+
+    startLevel = level + 9;
+    minLevel = level;
+    stepDivisor *= 10;
+  }
+
+  return level / stepDivisor;
+};
+
 export function zoomLevel(): number {
   const window = global.window;
   if (!window) {
@@ -51,21 +69,7 @@ export function zoomLevel(): number {
   }
 
   if (typeof window.matchMedia !== "undefined") {
-    const mm = window.matchMedia;
-    let startLevel = 10;
-    let minLevel = 0.1;
-    let stepDivisor = 1;
-    let level;
-
-    for (let i = 0; i < 4; i++) {
-      level = 10 * zoomLevelDetector(mm, startLevel, minLevel, stepDivisor);
-
-      startLevel = level + 9;
-      minLevel = level;
-      stepDivisor *= 10;
-    }
-
-    return level / stepDivisor;
+    return calculatePageZoomLevel();
   }
 
   return 1;
