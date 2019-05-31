@@ -12,7 +12,8 @@
 
 ## ABOUT
 
-This plugin allows you to detect browser's and separate element's zoom level.
+This plugin allows you to detect browser's and separate element's zoom level.  
+It is [lightweight](https://bundlephobia.com/result?p=zoom-level) and has **no dependencies**!
 
 ## INSTALLATION
 
@@ -20,6 +21,12 @@ This plugin allows you to detect browser's and separate element's zoom level.
 npm install zoom-level
 # or via yarn
 yarn add zoom-level
+```
+
+You can even include it with a standalone <script> tag from [UNPKG CDN](https://unpkg.com/zoom-level/)
+
+```html
+<script src="https://unpkg.com/zoom-level" />
 ```
 
 ## USAGE
