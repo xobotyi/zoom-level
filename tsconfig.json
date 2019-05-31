@@ -9,7 +9,7 @@
     "declaration": true,
     "target": "esnext",
     "module": "commonjs",
-    "lib": ["esnext"]
+    "lib": ["dom"]
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]
