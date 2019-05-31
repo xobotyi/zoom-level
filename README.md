@@ -27,6 +27,12 @@ You can even include it with a standalone <script> tag from [UNPKG CDN](https://
 
 ```html
 <script src="https://unpkg.com/zoom-level" />
+
+<script>
+  (() => {
+    window.zoomLevel.zoomLevel(); // 1
+  })();
+</script>
 ```
 
 ## USAGE
@@ -34,10 +40,10 @@ You can even include it with a standalone <script> tag from [UNPKG CDN](https://
 ```javascript
 import zoomLevel from "zoom-level";
 
-console.log(zoomLevel()); // 1;
+zoomLevel(); // 1;
 
 window.addEventListener("resize", () => {
-  console.log(zoomLevel()); // will return current browser's zoom level
+  zoomLevel(); // will return current browser's zoom level
 });
 ```
 
@@ -56,9 +62,9 @@ zoomedBlock.style.background = "rgba(0,0,0,.05)";
 zoomedBlock.innerText = "Lorem ipusm dolor sit amet";
 document.appendChild(zoomedBlock);
 
-console.log(elementZoomLevel(zoomedBlock)); // 0.5;
+elementZoomLevel(zoomedBlock); // 0.5;
 
 window.addEventListener("resize", () => {
-  console.log(elementZoomLevel(zoomedBlock)); // if you zoom to 200% it'll be 1
+  elementZoomLevel(zoomedBlock); // if you zoom to 200% it'll be 1
 });
 ```
