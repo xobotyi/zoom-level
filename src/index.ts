@@ -45,7 +45,7 @@ const calculatePageZoomLevel = (): number => {
   return level / stepDivisor;
 };
 
-export function zoomLevel(): number {
+const zoomLevel = (): number => {
   const window = global.window;
   if (!window) {
     return 1;
@@ -73,13 +73,13 @@ export function zoomLevel(): number {
   }
 
   return 1;
-}
+};
 
-export default zoomLevel;
-
-export function elementZoomLevel(element: HTMLElement, style?: CSSStyleDeclaration): number {
+const elementZoomLevel = (element: HTMLElement, style?: CSSStyleDeclaration): number => {
   style = style || getComputedStyle(element);
 
   // @ts-ignore
   return zoomLevel() * (parseFloat(style.zoom) || 1);
-}
+};
+
+export { zoomLevel as default, elementZoomLevel, zoomLevel };
