@@ -1,9 +1,11 @@
-declare var document: Document & {
-  frames: {
-    devicePixelRatio: number;
-    screen: {
-      deviceXDPI: number;
-      systemXDPI: number;
+type IECompatibleWindow = Window & {
+  document: Document & {
+    frames?: {
+      devicePixelRatio: number;
+      screen: {
+        deviceXDPI: number;
+        systemXDPI: number;
+      };
     };
   };
 };
@@ -42,39 +44,35 @@ function calculatePageZoomLevel(): number {
   return level / stepDivisor;
 }
 
-function zoomLevel(): number {
-  if (!window) {
+function zoomLevel(win: IECompatibleWindow = window): number {
+  if (typeof win.devicePixelRatio !== "undefined") {
     return 1;
   }
 
-  if (typeof window.devicePixelRatio !== "undefined") {
-    return 1;
-  }
-
-  if (!document) {
-    return 1;
-  }
-
-  if (typeof document.frames !== "undefined") {
-    if (typeof document.frames.devicePixelRatio !== "undefined") {
-      return document.frames.devicePixelRatio;
+  if (typeof win.document.frames !== "undefined") {
+    if (typeof win.document.frames.devicePixelRatio !== "undefined") {
+      return win.document.frames.devicePixelRatio;
     }
 
-    return document.frames.screen.deviceXDPI / document.frames.screen.systemXDPI;
+    return win.document.frames.screen.deviceXDPI / win.document.frames.screen.systemXDPI;
   }
 
-  if (typeof window.matchMedia !== "undefined") {
+  if (typeof win.matchMedia !== "undefined") {
     return calculatePageZoomLevel();
   }
 
   return 1;
 }
 
-function elementZoomLevel(element: HTMLElement, style?: CSSStyleDeclaration): number {
-  style = style || getComputedStyle(element);
+function elementZoomLevel(
+  element: HTMLElement,
+  elementStyles?: CSSStyleDeclaration,
+  win: IECompatibleWindow = window
+): number {
+  elementStyles = elementStyles || getComputedStyle(element);
 
   // @ts-ignore
-  return zoomLevel() * (parseFloat(style.zoom) || 1);
+  return zoomLevel(win) * (parseFloat(elementStyles.zoom) || 1);
 }
 
 export { zoomLevel as default, elementZoomLevel, zoomLevel };
