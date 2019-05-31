@@ -72,3 +72,10 @@ export function zoomLevel(): number {
 }
 
 export default zoomLevel;
+
+export function elementZoomLevel(element: HTMLElement, style?: CSSStyleDeclaration): number {
+  style = style || getComputedStyle(element);
+
+  // @ts-ignore
+  return zoomLevel() * (parseFloat(style.zoom) || 1);
+}
