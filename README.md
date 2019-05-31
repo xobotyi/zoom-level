@@ -68,3 +68,8 @@ window.addEventListener("resize", () => {
   elementZoomLevel(zoomedBlock); // if you zoom to 200% it'll be 1
 });
 ```
+
+## TESTS
+
+Sadly i have no idea how to manage testing of this package, due to there is no known ways to control browser's zoom level.  
+If you know how to do it - please let me know.
