@@ -10,6 +10,10 @@ type IECompatibleWindow = Window & {
   };
 };
 
+declare var global: {
+  window?: IECompatibleWindow;
+};
+
 const zoomLevelDetector = (
   matchMedia: Window["matchMedia"],
   currentLevel: number,
@@ -45,7 +49,11 @@ function calculatePageZoomLevel(win: Window): number {
 }
 
 function zoomLevel(win?: IECompatibleWindow): number {
-  win = win || window;
+  win = win || global.window;
+
+  if (!win) {
+    return 1;
+  }
 
   if (typeof win.devicePixelRatio !== "undefined") {
     return win.devicePixelRatio;
@@ -68,8 +76,6 @@ function zoomLevel(win?: IECompatibleWindow): number {
 }
 
 function elementZoomLevel(element: HTMLElement, elementStyles?: CSSStyleDeclaration, win?: IECompatibleWindow): number {
-  win = win || window;
-
   elementStyles = elementStyles || getComputedStyle(element);
 
   // @ts-ignore
