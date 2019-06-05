@@ -1,6 +1,6 @@
 {
   "name": "zoom-level",
-  "description": "A comprehensive cross-browser package that allow you to determine page's zoom level",
+  "description": "A comprehensive cross-browser package that allow you to determine page's and element's zoom level",
   "keywords": [
     "zoom",
     "zoom-level",

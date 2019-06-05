@@ -51,12 +51,13 @@ function zoomLevel(win?: IECompatibleWindow): number {
     return win.devicePixelRatio;
   }
 
-  if (typeof win.document.frames !== "undefined") {
-    if (typeof win.document.frames.devicePixelRatio !== "undefined") {
-      return win.document.frames.devicePixelRatio;
+  const frames = win.document.frames;
+  if (typeof frames !== "undefined") {
+    if (typeof frames.devicePixelRatio !== "undefined") {
+      return frames.devicePixelRatio;
     }
 
-    return win.document.frames.screen.deviceXDPI / win.document.frames.screen.systemXDPI;
+    return frames.screen.deviceXDPI / frames.screen.systemXDPI;
   }
 
   if (typeof win.matchMedia !== "undefined") {
