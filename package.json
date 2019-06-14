@@ -55,9 +55,7 @@
     "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --source-map includeSources,url=zoom-level.js.map",
     "preversion": "npm run format && npm run build",
     "postversion": "git push && git push --tags",
-    "prepublishOnly": "npm run format && npm run build"
-  },
-  "dependencies": {
+    "prepublishOnly": "npm run format && npm run build",
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "rollup-plugin-babel": "^4.3.2"
