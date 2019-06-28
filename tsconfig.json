@@ -8,8 +8,8 @@
     "alwaysStrict": true,
     "declaration": true,
     "target": "esnext",
-    "module": "commonjs",
-    "lib": ["dom"]
+    "module": "esnext",
+    "lib": ["esnext", "dom"]
   },
   "include": ["./src/**/*.ts"],
   "exclude": ["node_modules"]

@@ -82,4 +82,4 @@ function elementZoomLevel(element: HTMLElement, elementStyles?: CSSStyleDeclarat
   return zoomLevel(win) * (parseFloat(elementStyles.zoom) || 1);
 }
 
-export { zoomLevel as default, elementZoomLevel, zoomLevel };
+export { zoomLevel as default, zoomLevel, elementZoomLevel };

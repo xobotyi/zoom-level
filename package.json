@@ -38,10 +38,7 @@
     "rollup": "^1.15.4",
     "rollup-plugin-typescript2": "^0.21.1",
     "terser": "^4.0.0",
-    "typescript": "^3.5.2",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "rollup-plugin-babel": "^4.3.2"
+    "typescript": "^3.5.2"
   },
   "husky": {
     "hooks": {

@@ -23,18 +23,6 @@ npm install zoom-level
 yarn add zoom-level
 ```
 
-You can even include it with a standalone <script> tag from [UNPKG CDN](https://unpkg.com/zoom-level/)
-
-```html
-<script src="https://unpkg.com/zoom-level" />
-
-<script>
-  (() => {
-    window.zoomLevel.zoomLevel(); // 1
-  })();
-</script>
-```
-
 ## USAGE
 
 ```javascript
