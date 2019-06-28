@@ -30,7 +30,7 @@ const zoomLevelDetector = (
   return currentLevel;
 };
 
-function calculatePageZoomLevel(win: Window): number {
+const calculatePageZoomLevel = (win: Window): number => {
   const mm = win.matchMedia;
   let startLevel = 10;
   let minLevel = 0.1;
@@ -46,7 +46,7 @@ function calculatePageZoomLevel(win: Window): number {
   }
 
   return level / stepDivisor;
-}
+};
 
 function zoomLevel(win?: IECompatibleWindow): number {
   win = win || global.window;

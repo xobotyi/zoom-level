@@ -52,7 +52,7 @@
     "push-codacy-coverage": "cat ./coverage/lcov.info | codacy-coverage",
     "format": "prettier --write src/**/*.ts tests/**/*.ts *.js *.ts",
     "build": "rimraf ./dist && rollup --config && npm run minify",
-    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --source-map includeSources,url=zoom-level.js.map",
+    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --toplevel --source-map includeSources,url=zoom-level.js.map",
     "preversion": "npm run format && npm run build",
     "postversion": "git push && git push --tags",
     "prepublishOnly": "npm run format && npm run build"
