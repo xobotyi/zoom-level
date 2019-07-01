@@ -11,6 +11,7 @@
   "version": "1.2.1",
   "main": "dist/zoom-level.js",
   "module": "dist/zoom-level.esm.js",
+  "esnext": "dist/zoom-level.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"

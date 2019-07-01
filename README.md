@@ -23,6 +23,14 @@ npm install zoom-level
 yarn add zoom-level
 ```
 
+**INSTALLATION NOTE:**  
+This lib is written in ES6+ and delivering with both, transpiled and untranspiled versions.  
+The `main` field of `package.json` is pointing to transpiled ES3-compatible version, whereas
+`module` and `esnext` fields are pointing to the raw, untranspiled one.  
+Depending on your targets you may have to use [Webpack](https://webpack.js.org/) and/or
+[Babel](http://babeljs.io/).  
+See some tips on wiring thing up: [https://2ality.com/2017/06/pkg-esnext.html](https://2ality.com/2017/06/pkg-esnext.html)
+
 ## USAGE
 
 ```javascript
