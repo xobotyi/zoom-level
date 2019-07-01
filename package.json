@@ -10,8 +10,8 @@
   ],
   "version": "1.2.2",
   "main": "dist/zoom-level.js",
-  "module": "dist/zoom-level.esm.js",
-  "esnext": "dist/zoom-level.esm.js",
+  "module": "dist/zoom-level.mjs",
+  "esnext": "dist/zoom-level.next.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
