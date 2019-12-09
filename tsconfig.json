@@ -5,7 +5,7 @@
     "noImplicitReturns": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
-    "alwaysStrict": true,
+    "strict": true,
     "declaration": true,
     "target": "esnext",
     "module": "esnext",

@@ -10,10 +10,6 @@ type IECompatibleWindow = Window & {
   };
 };
 
-declare var global: {
-  window?: IECompatibleWindow;
-};
-
 const zoomLevelDetector = (
   matchMedia: Window["matchMedia"],
   currentLevel: number,
@@ -35,7 +31,7 @@ const calculatePageZoomLevel = (win: Window): number => {
   let startLevel = 10;
   let minLevel = 0.1;
   let stepDivisor = 1;
-  let level;
+  let level: number;
 
   for (let i = 0; i < 4; i++) {
     level = 10 * zoomLevelDetector(mm, startLevel, minLevel, stepDivisor);
@@ -45,20 +41,26 @@ const calculatePageZoomLevel = (win: Window): number => {
     stepDivisor *= 10;
   }
 
-  return level / stepDivisor;
+  return level! / stepDivisor;
 };
 
-function zoomLevel(win?: IECompatibleWindow): number {
-  win = win || global.window;
-
+/**
+ * @description Return zoom multiplier of a window instance.
+ *
+ * @param win {Window} Window instance zoom level will be determined for. Useful
+ * when needed to get zoom level of an iFrame
+ */
+export function zoomLevel(win: IECompatibleWindow = window): number {
   if (!win) {
     return 1;
   }
 
+  // For IE11+ and any
   if (typeof win.devicePixelRatio !== "undefined") {
     return win.devicePixelRatio;
   }
 
+  // For IE10
   const frames = win.document.frames;
   if (typeof frames !== "undefined") {
     if (typeof frames.devicePixelRatio !== "undefined") {
@@ -68,18 +70,25 @@ function zoomLevel(win?: IECompatibleWindow): number {
     return frames.screen.deviceXDPI / frames.screen.systemXDPI;
   }
 
+  // For any other browsers which does not support above
   if (typeof win.matchMedia !== "undefined") {
     return calculatePageZoomLevel(win);
   }
 
+  // fallback otherwise
   return 1;
 }
 
-function elementZoomLevel(element: HTMLElement, elementStyles?: CSSStyleDeclaration, win?: IECompatibleWindow): number {
-  elementStyles = elementStyles || getComputedStyle(element);
+/**
+ * @description Return reduced element's zoom level. Basically it multiplies
+ * computed CSS zoom level of an element with  window's one
+ *
+ * @param elementOrStyles {Element | CSSStyleDeclaration} Can be element itself or element's `getComputedStyle` call result
+ * @param win {Window} parent window of an element (useful for iFrames)
+ */
+export function elementZoomLevel(elementOrStyles: Element | CSSStyleDeclaration, win?: IECompatibleWindow): number {
+  const zoom =
+    (elementOrStyles instanceof Element ? getComputedStyle(elementOrStyles).zoom : elementOrStyles.zoom) || 1;
 
-  // @ts-ignore
-  return zoomLevel(win) * (parseFloat(elementStyles.zoom) || 1);
+  return zoomLevel(win) * (typeof zoom === "string" ? parseFloat(zoom) : zoom);
 }
-
-export { zoomLevel as default, zoomLevel, elementZoomLevel };
