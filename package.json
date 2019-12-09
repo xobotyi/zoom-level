@@ -1,5 +1,9 @@
 {
   "name": "zoom-level",
+  "version": "2.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "A comprehensive cross-browser package that allow you to determine page's and element's zoom level",
   "keywords": [
     "zoom",
@@ -8,11 +12,11 @@
     "zoom-detect",
     "scale"
   ],
-  "version": "2.0.0",
   "main": "dist/zoom-level.js",
   "module": "dist/zoom-level.esm.js",
   "esnext": "dist/zoom-level.next.esm.js",
   "types": "dist/index.d.ts",
+  "sideEffects": false,
   "files": [
     "dist"
   ],

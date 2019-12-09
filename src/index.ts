@@ -83,7 +83,8 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
  * @description Return reduced element's zoom level. Basically it multiplies
  * computed CSS zoom level of an element with  window's one
  *
- * @param elementOrStyles {Element | CSSStyleDeclaration} Can be element itself or element's `getComputedStyle` call result
+ * @param elementOrStyles {Element | CSSStyleDeclaration} Can be element itself or
+ * element's `getComputedStyle` call result
  * @param win {Window} parent window of an element (useful for iFrames)
  */
 export function elementZoomLevel(elementOrStyles: Element | CSSStyleDeclaration, win?: IECompatibleWindow): number {
