@@ -1,16 +1,19 @@
 language: node_js
 node_js: 12
 
-matrix:
-  fast_finish: true
-
 cache:
   yarn: true
 
-script:
-  - yarn
-  - yarn lint
-  - yarn build
-
-after_success:
-  - npx semantic-release
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn
+        - yarn lint
+        - yarn build
+    - stage: release
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - yarn semantic-release
