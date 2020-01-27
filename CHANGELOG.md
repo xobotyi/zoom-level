@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/xobotyi/zoom-level/compare/v2.1.0...v2.2.0) (2020-01-27)
+
+
+### Features
+
+* try new travis structure based on jobs ([5379ba8](https://github.com/xobotyi/zoom-level/commit/5379ba89a844ce0b8644cb3e3129e2128fe335ca))
+
 # [2.1.0](https://github.com/xobotyi/zoom-level/compare/v2.0.0...v2.1.0) (2020-01-27)
 
 
