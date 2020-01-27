@@ -1,3 +1,5 @@
+os: linux
+
 language: node_js
 node_js: 12
 
@@ -8,12 +10,11 @@ jobs:
   include:
     - stage: test
       script:
-        - yarn
         - yarn lint
         - yarn build
     - stage: release
+      script: skip
       deploy:
         provider: script
         skip_cleanup: true
-        script:
-          - yarn semantic-release
+        script: yarn semantic-release
