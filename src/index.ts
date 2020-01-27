@@ -10,28 +10,25 @@ type IECompatibleWindow = Window & {
   };
 };
 
-const zoomLevelDetector = (
-  matchMedia: Window["matchMedia"],
+function zoomLevelDetector(
+  matchMedia: Window['matchMedia'],
   currentLevel: number,
   minimalLevel: number,
-  stepDivisor: number
-) => {
-  while (
-    currentLevel >= minimalLevel &&
-    !matchMedia("(min-resolution: " + currentLevel / stepDivisor + "dppx)").matches
-  ) {
+  stepDivisor: number,
+): number {
+  while (currentLevel >= minimalLevel && !matchMedia(`(min-resolution: ${currentLevel / stepDivisor}dppx)`).matches) {
     currentLevel--;
   }
 
   return currentLevel;
-};
+}
 
-const calculatePageZoomLevel = (win: Window): number => {
+function calculatePageZoomLevel(win: Window): number {
   const mm = win.matchMedia;
   let startLevel = 10;
   let minLevel = 0.1;
   let stepDivisor = 1;
-  let level: number;
+  let level = startLevel;
 
   for (let i = 0; i < 4; i++) {
     level = 10 * zoomLevelDetector(mm, startLevel, minLevel, stepDivisor);
@@ -41,8 +38,8 @@ const calculatePageZoomLevel = (win: Window): number => {
     stepDivisor *= 10;
   }
 
-  return level! / stepDivisor;
-};
+  return level / stepDivisor;
+}
 
 /**
  * @description Return zoom multiplier of a window instance.
@@ -56,14 +53,14 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
   }
 
   // For IE11+ and any
-  if (typeof win.devicePixelRatio !== "undefined") {
+  if (typeof win.devicePixelRatio !== 'undefined') {
     return win.devicePixelRatio;
   }
 
   // For IE10
-  const frames = win.document.frames;
-  if (typeof frames !== "undefined") {
-    if (typeof frames.devicePixelRatio !== "undefined") {
+  const { frames } = win.document;
+  if (typeof frames !== 'undefined') {
+    if (typeof frames.devicePixelRatio !== 'undefined') {
       return frames.devicePixelRatio;
     }
 
@@ -71,7 +68,7 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
   }
 
   // For any other browsers which does not support above
-  if (typeof win.matchMedia !== "undefined") {
+  if (typeof win.matchMedia !== 'undefined') {
     return calculatePageZoomLevel(win);
   }
 
@@ -91,5 +88,5 @@ export function elementZoomLevel(elementOrStyles: Element | CSSStyleDeclaration,
   const zoom =
     (elementOrStyles instanceof Element ? getComputedStyle(elementOrStyles).zoom : elementOrStyles.zoom) || 1;
 
-  return zoomLevel(win) * (typeof zoom === "string" ? parseFloat(zoom) : zoom);
+  return zoomLevel(win) * (typeof zoom === 'string' ? parseFloat(zoom) : zoom);
 }

@@ -35,31 +35,39 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "codacy-coverage": "^3.4.0",
-    "husky": "^2.4.1",
+    "@xobotyi/eslint-config": "^1.0.6",
+    "@xobotyi/preset-typescript": "^1.0.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
     "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1",
     "rimraf": "^2.6.3",
-    "rollup": "^1.15.4",
+    "rollup": "^1.30.0",
     "rollup-plugin-typescript2": "^0.21.1",
     "terser": "^4.0.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "lint": "eslint ./src/**/*.ts ./*.{ts,js}",
+    "lint:fix": "yarn lint --fix",
+    "lint:types": "tsc --noEmit",
+    "build": "rimraf ./dist && rollup --config && npm run minify",
+    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --toplevel --source-map includeSources,url=zoom-level.js.map"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "tslint --fix -t verbose",
+      "git add"
+    ],
+    "./*.{ts,js}": [
+      "tslint --fix -t verbose",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "yarn lint:types && lint-staged",
+      "pre-push": "yarn lint:fix && rimraf dist && yarn build"
     }
-  },
-  "prettier": {
-    "printWidth": 120
-  },
-  "scripts": {
-    "push-codacy-coverage": "cat ./coverage/lcov.info | codacy-coverage",
-    "format": "prettier --write src/**/*.ts tests/**/*.ts *.js *.ts",
-    "build": "rimraf ./dist && rollup --config && npm run minify",
-    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --toplevel --source-map includeSources,url=zoom-level.js.map",
-    "preversion": "npm run format && npm run build",
-    "postversion": "git push && git push --tags",
-    "prepublishOnly": "npm run format && npm run build"
   }
 }
