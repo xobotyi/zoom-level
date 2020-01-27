@@ -1,6 +1,6 @@
 {
   "name": "zoom-level",
-  "version": "0.0.0-development",
+  "version": "2.1.0",
   "publishConfig": {
     "access": "public"
   },
