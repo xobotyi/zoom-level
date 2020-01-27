@@ -35,6 +35,9 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^8.0.0",
+    "@semantic-release/npm": "^6.0.0",
     "@xobotyi/eslint-config": "^1.0.6",
     "@xobotyi/preset-typescript": "^1.0.0",
     "eslint": "^6.8.0",
@@ -44,9 +47,9 @@
     "rimraf": "^2.6.3",
     "rollup": "^1.30.0",
     "rollup-plugin-typescript2": "^0.21.1",
+    "semantic-release": "^16.0.3",
     "terser": "^4.0.0",
-    "typescript": "^3.7.5",
-    "semantic-release": "^16.0.3"
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "lint": "eslint ./src/**/*.ts ./*.{ts,js}",
