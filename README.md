@@ -1,11 +1,21 @@
 <div align="center">
     <h1>zoom-level</h1>
     <p>
-        <a href="https://www.npmjs.com/package/zoom-level"><img src="https://img.shields.io/badge/npm-zoom--level-brightgreen.svg" /></a>
-        <a href="https://www.npmjs.com/package/zoom-level"><img src="https://img.shields.io/npm/v/zoom-level.svg" /></a>
-        <a href="https://www.npmjs.com/package/zoom-level"><img src="https://img.shields.io/npm/dt/zoom-level.svg" /></a>
-        <a href="https://www.codacy.com/app/xobotyi/zoom-level"><img src="https://api.codacy.com/project/badge/Grade/d9c7fa7e22c24e74b9c33e459a8eb774"/></a>
-        <a href="https://www.npmjs.com/package/zoom-level"><img src="https://img.shields.io/npm/l/zoom-level.svg" /></a>
+        <a href="https://www.npmjs.com/package/zoom-level">
+            <img src="https://flat.badgen.net/npm/v/zoom-level" alt="NPM version"/>
+        </a>
+        <a href="https://www.npmjs.com/package/zoom-level">
+            <img src="https://flat.badgen.net/npm/dw/zoom-level" alt="NPM weekly downloads"/>
+        </a>
+        <a href="https://www.npmjs.com/package/zoom-level">
+            <img src="https://flat.badgen.net/npm/license/zoom-level" alt="License"/>
+        </a>
+        <a href="https://www.npmjs.com/package/zoom-level">
+            <img src="https://flat.badgen.net/npm/types/zoom-level" alt="Types definition"/>
+        </a>
+        <a href="https://www.npmjs.com/package/zoom-level">
+            <img src="https://flat.badgen.net/codacy/grade/d9c7fa7e22c24e74b9c33e459a8eb774" alt="Codacy Code Grade"/>
+        </a>
     </p>
     × <strong><a href="https://codesandbox.io/s/zoomlevel-live-example-841ns">LIVE EXAMPLE</a></strong> ×
 </div>
