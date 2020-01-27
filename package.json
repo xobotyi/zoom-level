@@ -1,6 +1,6 @@
 {
   "name": "zoom-level",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "publishConfig": {
     "access": "public"
   },
@@ -45,14 +45,16 @@
     "rollup": "^1.30.0",
     "rollup-plugin-typescript2": "^0.21.1",
     "terser": "^4.0.0",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "semantic-release": "^16.0.3"
   },
   "scripts": {
     "lint": "eslint ./src/**/*.ts ./*.{ts,js}",
     "lint:fix": "yarn lint --fix",
     "lint:types": "tsc --noEmit",
     "build": "rimraf ./dist && rollup --config && npm run minify",
-    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --toplevel --source-map includeSources,url=zoom-level.js.map"
+    "minify": "terser ./dist/zoom-level.js -o ./dist/zoom-level.js -mc pure_funcs=['Object.defineProperty'] --toplevel --source-map includeSources,url=zoom-level.js.map",
+    "semantic-release": "semantic-release"
   },
   "lint-staged": {
     "src/**/*.ts": [
@@ -69,5 +71,25 @@
       "pre-commit": "yarn lint:types && lint-staged",
       "pre-push": "yarn lint:fix && rimraf dist && yarn build"
     }
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "next",
+        "prerelease": "rc"
+      }
+    ],
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ]
   }
 }

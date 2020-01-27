@@ -1,18 +1,16 @@
 language: node_js
-node_js:
-  - "stable"
-  - "9"
-  - "10"
+node_js: 12
 
 matrix:
   fast_finish: true
 
 cache:
-  directories:
-    - "node_modules"
+  yarn: true
 
 script:
-  - npm run test
+  - yarn
+  - yarn lint
+  - yarn build
 
 after_success:
-  - npm run push-codacy-coverage
+  - npx semantic-release
