@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/xobotyi/zoom-level/compare/v2.2.0...v2.2.1) (2020-01-27)
+
+
+### Bug Fixes
+
+* return yarn.lock file ([47febcf](https://github.com/xobotyi/zoom-level/commit/47febcffd3478475cdaaadbc3ae75b6c829e2163))
+
 # [2.2.0](https://github.com/xobotyi/zoom-level/compare/v2.1.0...v2.2.0) (2020-01-27)
 
 
