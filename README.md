@@ -20,6 +20,12 @@
     × <strong><a href="https://codesandbox.io/s/zoomlevel-live-example-841ns">LIVE EXAMPLE</a></strong> ×
 </div>
 
+---
+
+<div align="center">❤️Please consider starring this project to show your love and support.🙌</div>
+
+---
+
 ## ABOUT
 
 This plugin allows you to detect browser's and separate element's zoom level.  
@@ -82,3 +88,10 @@ window.addEventListener("resize", () => {
 
 Sadly i have no idea how to manage testing of this package, due to there is no known ways to control browser's zoom level.  
 If you know how to do it - please let me know.
+
+
+## Related projects
+
+- [react-scrollbars-custom](https://www.npmjs.com/package/react-scrollbars-custom) &mdash; The best React custom scrollbars component. Allows you to customise scrollbars as you like it, crossbrowser!
+- [@xobotyi/scrollbar-width](https://www.npmjs.com/package/@xobotyi/scrollbar-width) &mdash; A tool to get browser's scrollbars width.
+- [@xobotyi/should-reverse-rtl-scroll](https://www.npmjs.com/package/@xobotyi/should-reverse-rtl-scroll) &mdash; A tool detecting if RTL scroll value should be negative.
