@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/xobotyi/zoom-level/compare/v2.2.1...v2.3.0) (2020-01-28)
+
+
+### Features
+
+* added related projects section to readme; ([203bc60](https://github.com/xobotyi/zoom-level/commit/203bc6081624d0a74bae355b4e68b5f465cb588b))
+
 ## [2.2.1](https://github.com/xobotyi/zoom-level/compare/v2.2.0...v2.2.1) (2020-01-27)
 
 
