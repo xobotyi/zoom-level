@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/xobotyi/zoom-level/compare/v2.3.0...v2.3.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* remove everything from dist packages excepting dist code. ([aac7e06](https://github.com/xobotyi/zoom-level/commit/aac7e06e57947a63edba116e17b084f579b9d406))
+
 # [2.3.0](https://github.com/xobotyi/zoom-level/compare/v2.2.1...v2.3.0) (2020-01-28)
 
 
