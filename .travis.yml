@@ -1,4 +1,5 @@
 os: linux
+dist: trusty
 
 language: node_js
 node_js: 12
@@ -6,15 +7,11 @@ node_js: 12
 cache:
   yarn: true
 
-jobs:
-  include:
-    - stage: test
-      script:
-        - yarn lint
-        - yarn build
-    - stage: release
-      script: skip
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: yarn semantic-release
+script:
+  - yarn lint
+  - yarn build
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: yarn semantic-release
