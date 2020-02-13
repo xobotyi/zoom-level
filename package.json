@@ -46,7 +46,7 @@
     "prettier": "^1.18.2",
     "rimraf": "^3.0.2",
     "rollup": "^1.30.0",
-    "rollup-plugin-typescript2": "^0.21.1",
+    "rollup-plugin-typescript2": "^0.26.0",
     "semantic-release": "^16.0.3",
     "terser": "^4.0.0",
     "typescript": "^3.7.5"
