@@ -61,11 +61,11 @@
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "tslint --fix -t verbose",
+      "yarn lint:fix",
       "git add"
     ],
     "./*.{ts,js}": [
-      "tslint --fix -t verbose",
+      "yarn lint:fix",
       "git add"
     ]
   },
