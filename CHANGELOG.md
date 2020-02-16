@@ -1,3 +1,15 @@
+# [2.4.0](https://github.com/xobotyi/zoom-level/compare/v2.3.1...v2.4.0) (2020-02-16)
+
+
+### Bug Fixes
+
+* lint-staged commands been using the tslint; ([6f203b4](https://github.com/xobotyi/zoom-level/commit/6f203b427927a77e7cdb6f73233cc918778760cf))
+
+
+### Features
+
+* terser now minifies all the code via rollup plugin; ([5d5a666](https://github.com/xobotyi/zoom-level/commit/5d5a6662bf1e8a1e881eed2e83fc412adacfa485))
+
 ## [2.3.1](https://github.com/xobotyi/zoom-level/compare/v2.3.0...v2.3.1) (2020-01-30)
 
 
