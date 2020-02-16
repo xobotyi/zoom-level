@@ -1,4 +1,5 @@
 import ts from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default [
@@ -19,9 +20,12 @@ export default [
           compilerOptions: {
             module: 'esnext',
             target: 'esnext',
+            declaration: true,
+            declarationDir: 'dist',
           },
         },
       }),
+      terser(),
     ],
   },
   {
@@ -31,7 +35,6 @@ export default [
       {
         file: pkg.main,
         format: 'cjs',
-        sourcemap: true,
       },
       {
         file: pkg.module,
@@ -49,6 +52,7 @@ export default [
           },
         },
       }),
+      terser(),
     ],
   },
 ];
