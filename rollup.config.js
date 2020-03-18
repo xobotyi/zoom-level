@@ -2,7 +2,7 @@ import ts from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-export default [
+module.exports = [
   {
     input: './src/index.ts',
 
