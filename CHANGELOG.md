@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/xobotyi/zoom-level/compare/v2.4.0...v2.4.1) (2020-03-18)
+
+
+### Bug Fixes
+
+* make rollup config file cjs-compat. ([7ea9c3a](https://github.com/xobotyi/zoom-level/commit/7ea9c3a70ab976b6a09e62d51a65d448b98492d4))
+
 # [2.4.0](https://github.com/xobotyi/zoom-level/compare/v2.3.1...v2.4.0) (2020-02-16)
 
 
