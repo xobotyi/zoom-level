@@ -40,7 +40,7 @@
     "@semantic-release/npm": "^7.0.3",
     "@xobotyi/eslint-config": "^1.0.6",
     "@xobotyi/preset-typescript": "^1.0.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "husky": "^4.2.1",
     "lint-staged": "^10.0.2",
     "prettier": "^2.0.1",
