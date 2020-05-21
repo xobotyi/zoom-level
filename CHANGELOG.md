@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/xobotyi/zoom-level/compare/v2.4.1...v2.5.0) (2020-05-21)
+
+
+### Features
+
+* add patreon funding link ([7e444f5](https://github.com/xobotyi/zoom-level/commit/7e444f53021660af8dfbe4fc0a4b7fb570e271ce))
+
 ## [2.4.1](https://github.com/xobotyi/zoom-level/compare/v2.4.0...v2.4.1) (2020-03-18)
 
 
