@@ -20,6 +20,10 @@
   "files": [
     "dist"
   ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/xobotyi"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/xobotyi/zoom-level.git"
