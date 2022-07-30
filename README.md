@@ -1,28 +1,17 @@
 <div align="center">
-    <h1>zoom-level</h1>
-    <p>
-        <a href="https://www.npmjs.com/package/zoom-level">
-            <img src="https://flat.badgen.net/npm/v/zoom-level" alt="NPM version"/>
-        </a>
-        <a href="https://www.npmjs.com/package/zoom-level">
-            <img src="https://flat.badgen.net/npm/dw/zoom-level" alt="NPM weekly downloads"/>
-        </a>
-        <a href="https://www.npmjs.com/package/zoom-level">
-            <img src="https://flat.badgen.net/npm/license/zoom-level" alt="License"/>
-        </a>
-        <a href="https://www.npmjs.com/package/zoom-level">
-            <img src="https://flat.badgen.net/npm/types/zoom-level" alt="Types definition"/>
-        </a>
-        <a href="https://www.npmjs.com/package/zoom-level">
-            <img src="https://flat.badgen.net/codacy/grade/d9c7fa7e22c24e74b9c33e459a8eb774" alt="Codacy Code Grade"/>
-        </a>
-    </p>
-    × <strong><a href="https://codesandbox.io/s/zoomlevel-live-example-841ns">LIVE EXAMPLE</a></strong> ×
+
+# zoom-level
+
+[![NPM Version](https://flat.badgen.net/npm/v/zoom-level)](https://www.npmjs.com/package/zoom-level)
+[![NPM Downloads](https://flat.badgen.net/npm/dm/zoom-level)](https://www.npmjs.com/package/zoom-level)
+[![NPM Dependents](https://flat.badgen.net/npm/dependents/zoom-level)](https://www.npmjs.com/package/zoom-level)
+[![Build](https://img.shields.io/github/workflow/status/xobotyi/zoom-level/CI?style=flat-square)](https://github.com/xobotyi/zoom-level/actions)
+[![Types](https://flat.badgen.net/npm/types/zoom-level)](https://www.npmjs.com/package/zoom-level)
+[![Tree Shaking](https://flat.badgen.net/bundlephobia/tree-shaking/zoom-level)](https://bundlephobia.com/result?p=zoom-level)
+
+× **[LIVE EXAMPLE](https://codesandbox.io/s/zoomlevel-live-example-841ns)** ×
+
 </div>
-
----
-
-<div align="center">❤️Please consider starring this project to show your love and support.🙌</div>
 
 ---
 
@@ -42,13 +31,14 @@ yarn add zoom-level
 **INSTALLATION NOTE:**  
 This lib is written in ES6+ and delivering with both, transpiled and untranspiled versions:
 
-- `main` field of `package.json` is pointing to transpiled ES3-compatible version with CJS modules resolution;
-- `module` field is pointing to transpiled ES3-compatible version with ES modules resolution;
-- `esnext` field is pointing to the ES6+ version with ES modules resolution;
+- `main` field of `package.json` is pointing ES5 with CJS modules resolution;
+- `module` field is pointing to ES5 with ES modules resolution;
+- `esnext` field is pointing to ESNext with ES modules resolution;
 
 Depending on your targets you may have to use [Webpack](https://webpack.js.org/) and/or
 [Babel](http://babeljs.io/) to pull untranspiled version of package.  
-See some tips on wiring thing up: [https://2ality.com/2017/06/pkg-esnext.html](https://2ality.com/2017/06/pkg-esnext.html)
+See some tips on wiring thing
+up: [https://2ality.com/2017/06/pkg-esnext.html](https://2ality.com/2017/06/pkg-esnext.html)
 
 ## USAGE
 
@@ -62,7 +52,8 @@ window.addEventListener("resize", () => {
 });
 ```
 
-Or, in case you want to detect separate element's zoom level (they can use own `zoom` CSS property which stacks with browser's one);
+Or, in case you want to detect separate element's zoom level (they can use own `zoom` CSS property
+which stacks with browser's one);
 
 ```javascript
 import { elementZoomLevel } from "zoom-level";
@@ -86,12 +77,16 @@ window.addEventListener("resize", () => {
 
 ## TESTS
 
-Sadly i have no idea how to manage testing of this package, due to there is no known ways to control browser's zoom level.  
+Sadly i have no idea how to manage testing of this package, due to there is no known ways to control
+browser's zoom level.  
 If you know how to do it - please let me know.
-
 
 ## Related projects
 
-- [react-scrollbars-custom](https://www.npmjs.com/package/react-scrollbars-custom) &mdash; The best React custom scrollbars component. Allows you to customise scrollbars as you like it, crossbrowser!
-- [@xobotyi/scrollbar-width](https://www.npmjs.com/package/@xobotyi/scrollbar-width) &mdash; A tool to get browser's scrollbars width.
-- [@xobotyi/should-reverse-rtl-scroll](https://www.npmjs.com/package/@xobotyi/should-reverse-rtl-scroll) &mdash; A tool detecting if RTL scroll value should be negative.
+- [react-scrollbars-custom](https://www.npmjs.com/package/react-scrollbars-custom) &mdash; The best
+  React custom scrollbars component. Allows you to customise scrollbars as you like it,
+  crossbrowser!
+- [@xobotyi/scrollbar-width](https://www.npmjs.com/package/@xobotyi/scrollbar-width) &mdash; A tool
+  to get browser's scrollbars width.
+- [@xobotyi/should-reverse-rtl-scroll](https://www.npmjs.com/package/@xobotyi/should-reverse-rtl-scroll)
+  &mdash; A tool detecting if RTL scroll value should be negative.

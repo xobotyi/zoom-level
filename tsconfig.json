@@ -1,12 +1,23 @@
 {
-  "extends": "@xobotyi/preset-typescript/tsconfig.json",
   "compilerOptions": {
     "sourceMap": false,
-    "resolveJsonModule": false,
+    "removeComments": false,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "declaration": false,
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": [
+      "esnext",
+      "dom"
+    ]
   },
   "include": [
     "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

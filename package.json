@@ -1,9 +1,6 @@
 {
   "name": "zoom-level",
   "version": "2.5.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "A comprehensive cross-browser package that allow you to determine page's and element's zoom level",
   "keywords": [
     "zoom",
@@ -12,18 +9,16 @@
     "zoom-detect",
     "scale"
   ],
-  "main": "dist/zoom-level.js",
-  "module": "dist/zoom-level.esm.js",
-  "esnext": "dist/zoom-level.next.esm.js",
-  "types": "dist/index.d.ts",
-  "sideEffects": false,
   "files": [
-    "dist"
+    "cjs",
+    "esm",
+    "esnext"
   ],
-  "funding": {
-    "type": "patreon",
-    "url": "https://www.patreon.com/xobotyi"
-  },
+  "types": "cjs/index.d.ts",
+  "main": "cjs/index.js",
+  "esnext": "esnext/index.js",
+  "module": "esm/index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/xobotyi/zoom-level.git"
@@ -39,61 +34,37 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.0",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.0.3",
-    "@xobotyi/eslint-config": "^1.0.6",
-    "@xobotyi/preset-typescript": "^1.0.0",
-    "eslint": "^7.0.0",
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.2",
-    "prettier": "^2.0.1",
+    "@jamesacarr/eslint-formatter-github-actions": "^0.1.0",
+    "@react-hookz/eslint-config": "^1.6.1",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.5",
+    "concurrently": "^7.3.0",
+    "lint-staged": "^13.0.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.2",
-    "rollup-plugin-terser": "^7.0.0",
-    "rollup-plugin-typescript2": "^0.27.0",
-    "semantic-release": "^17.0.3",
-    "typescript": "^3.7.5"
-  },
-  "scripts": {
-    "lint": "eslint ./src/**/*.ts ./*.{ts,js}",
-    "lint:fix": "yarn lint --fix",
-    "lint:types": "tsc --noEmit",
-    "build": "rimraf ./dist && rollup --config",
-    "semantic-release": "semantic-release"
+    "semantic-release": "^19.0.3",
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "yarn lint:fix"
-    ],
-    "./*.{ts,js}": [
-      "yarn lint:fix"
-    ]
+    "*.{js,jsx,ts,tsx,md,mdx}": "eslint --fix"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint:types && lint-staged",
-      "pre-push": "yarn lint:fix && rimraf dist && yarn build"
-    }
+  "scripts": {
+    "lint": "eslint ./ --ext ts,js,tsx,jsx,md,mdx",
+    "lint:fix": "yarn lint --fix",
+    "build": "yarn build:cleanup && concurrently yarn:build:cjs yarn:build:esm yarn:build:esnext --kill-others-on-fail",
+    "build:cleanup": "rimraf ./cjs ./esm ./esnext",
+    "build:cjs": "tsc -p ./tsconfig.json --module CommonJS --target ES5 --outDir ./cjs",
+    "build:esm": "tsc -p ./tsconfig.json --module ES6 --target ES5 --outDir ./esm",
+    "build:esnext": "tsc -p ./tsconfig.json --module ESNext --target ESNext --outDir ./esnext"
   },
   "release": {
-    "branches": [
-      "master",
-      {
-        "name": "next",
-        "prerelease": "rc"
-      }
-    ],
-    "verifyConditions": [
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/github"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
     ]
   }
 }
