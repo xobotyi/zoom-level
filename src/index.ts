@@ -11,12 +11,15 @@ type IECompatibleWindow = Window & {
 };
 
 function zoomLevelDetector(
-  matchMedia: Window['matchMedia'],
+  matchMedia: Window["matchMedia"],
   currentLevel: number,
   minimalLevel: number,
-  stepDivisor: number,
+  stepDivisor: number
 ): number {
-  while (currentLevel >= minimalLevel && !matchMedia(`(min-resolution: ${currentLevel / stepDivisor}dppx)`).matches) {
+  while (
+    currentLevel >= minimalLevel &&
+    !matchMedia(`(min-resolution: ${currentLevel / stepDivisor}dppx)`).matches
+  ) {
     currentLevel--;
   }
 
@@ -53,14 +56,14 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
   }
 
   // For IE11+ and any
-  if (typeof win.devicePixelRatio !== 'undefined') {
+  if (typeof win.devicePixelRatio !== "undefined") {
     return win.devicePixelRatio;
   }
 
   // For IE10
   const { frames } = win.document;
-  if (typeof frames !== 'undefined') {
-    if (typeof frames.devicePixelRatio !== 'undefined') {
+  if (typeof frames !== "undefined") {
+    if (typeof frames.devicePixelRatio !== "undefined") {
       return frames.devicePixelRatio;
     }
 
@@ -68,7 +71,7 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
   }
 
   // For any other browsers which does not support above
-  if (typeof win.matchMedia !== 'undefined') {
+  if (typeof win.matchMedia !== "undefined") {
     return calculatePageZoomLevel(win);
   }
 
@@ -84,9 +87,18 @@ export function zoomLevel(win: IECompatibleWindow = window): number {
  * element's `getComputedStyle` call result
  * @param win {Window} parent window of an element (useful for iFrames)
  */
-export function elementZoomLevel(elementOrStyles: Element | CSSStyleDeclaration, win?: IECompatibleWindow): number {
+export function elementZoomLevel(
+  elementOrStyles: Element | CSSStyleDeclaration,
+  win?: IECompatibleWindow
+): number {
   const zoom =
-    (elementOrStyles instanceof Element ? getComputedStyle(elementOrStyles).zoom : elementOrStyles.zoom) || 1;
+    ((elementOrStyles instanceof Element
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-member-access
+        (getComputedStyle(elementOrStyles) as any).zoom
+      : // eslint-disable-next-line @typescript-eslint/no-explicit-any,@typescript-eslint/no-unsafe-member-access
+        (elementOrStyles as any).zoom) as string) || 1;
 
-  return zoomLevel(win) * (typeof zoom === 'string' ? parseFloat(zoom) : zoom);
+  return (
+    zoomLevel(win) * (typeof zoom === "string" ? Number.parseFloat(zoom) : zoom)
+  );
 }

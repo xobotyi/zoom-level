@@ -1,7 +1,5 @@
 .idea
-.rpt2_cache
-.yarn
 node_modules
-dist
-coverage
-package-lock.json
+cjs
+esm
+esnext
