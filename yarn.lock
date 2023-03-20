@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@actions/core@^1.2.6":
+"@actions/core@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@actions/core/-/core-1.10.0.tgz#44551c3c71163949a2f06e94d9ca2157a0cfac4f"
   integrity sha512-2aZDDa3zrrZbP5ZYg159sNoLRb61nQ7awl5pSvIq5Qpj81vwDzdMRKzkWJGJuwVvWpvZKx7vspJALyvaaIQyug==
@@ -270,12 +270,12 @@
   resolved "https://registry.yarnpkg.com/@isaacs/string-locale-compare/-/string-locale-compare-1.1.0.tgz#291c227e93fd407a96ecd59879a35809120e432b"
   integrity sha512-SQ7Kzhh9+D+ZW9MA0zkYv3VXhIDNx+LzM6EJ+/65I3QY+enU6Itte7E5XX7EWrqLW2FN4n06GWzBnPoC3th2aQ==
 
-"@jamesacarr/eslint-formatter-github-actions@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@jamesacarr/eslint-formatter-github-actions/-/eslint-formatter-github-actions-0.1.0.tgz#d00814b5b8b309cf97d488773cfdb140edf00932"
-  integrity sha512-ysXRx5C5pPVJ0t3Q1DpsMLWLQw5Fj8erEM0WnGhaOIgjLwZkOLmEiIw+4b5UhPsVCaf6jbUgdZuH2StR3jW0Ug==
+"@jamesacarr/eslint-formatter-github-actions@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@jamesacarr/eslint-formatter-github-actions/-/eslint-formatter-github-actions-0.2.0.tgz#5b4a4fae22cd354b3cbb2bad4c972edbe04e8fef"
+  integrity sha512-/BMX+d6Pg36aHi7FmRsyCXUXCFQOVnJap1xl97kgglNE++d2HtqR6eHVxL56wXnXqC5wyI4T9Y3e2RccyubqQA==
   dependencies:
-    "@actions/core" "^1.2.6"
+    "@actions/core" "^1.10.0"
 
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.2"
