@@ -13,6 +13,9 @@
 
 </div>
 
+> **Archived.** zoom-level existed to serve [react-scrollbars-custom](https://github.com/xobotyi/react-scrollbars-custom),
+> which is archived too. The package stays installable from npm and keeps working, but receives no updates.
+
 ---
 
 ## ABOUT
